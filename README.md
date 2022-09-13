@@ -1,7 +1,3 @@
-# clear-solutions-test
-
-
-
 # Clear solutions test project
 
 ### Project description
@@ -40,7 +36,7 @@ This project works with base of users, where users have such fields:
 
 You can via endpoints control users in database. 
 After the application is started it already has tree test users.
-The application don't use any database so users don't save between starts. 
+The application don't use any database so users are not saved between starts. 
 
 ### Project architecture
 1. Controllers - Presentation layer
@@ -48,7 +44,7 @@ The application don't use any database so users don't save between starts.
 3. DAO - Data access layer
 
 ### Technologies used in project
-- Spring Boot 2.7, Spring Web
+- Spring Boot 2.7
 - Java JDK v.17
 - Apache Maven v.3.8
 
