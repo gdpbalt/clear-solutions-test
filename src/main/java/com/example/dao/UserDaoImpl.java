@@ -55,12 +55,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User add(User user) {
-        Long nextId = UserStorage.users.values().stream()
-                .map(User::getId)
-                .max(Comparator.naturalOrder())
-                .orElse(0L) + 1;
-        user.setId(nextId);
-        UserStorage.users.put(nextId, user);
+        user.setId(findNextUserId());
+        UserStorage.users.put(user.getId(), user);
         return user;
     }
 
@@ -73,5 +69,12 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void delete(User user) {
         UserStorage.users.remove(user.getId());
+    }
+
+    private Long findNextUserId() {
+        return UserStorage.users.values().stream()
+                .map(User::getId)
+                .max(Comparator.naturalOrder())
+                .orElse(0L) + 1;
     }
 }

@@ -19,8 +19,31 @@ public class UserMapper implements RequestDtoMapper<UserRequestDto, User>,
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setBirthday(dto.getBirthday());
-        user.setAddress(dto.getAddress() == null ? "" : dto.getAddress());
-        user.setPhone(dto.getPhone() == null ? "" : dto.getPhone());
+        user.setAddress(dto.getAddress());
+        user.setPhone(dto.getPhone());
+        return user;
+    }
+
+    @Override
+    public User toModel(User user, UserRequestDto dto) {
+        if (dto.getEmail() != null) {
+            user.setEmail(dto.getEmail());
+        }
+        if (dto.getFirstName() != null) {
+            user.setFirstName(dto.getFirstName());
+        }
+        if (dto.getLastName() != null) {
+            user.setLastName(dto.getLastName());
+        }
+        if (dto.getBirthday() != null) {
+            user.setBirthday(dto.getBirthday());
+        }
+        if (dto.getAddress() != null) {
+            user.setAddress(dto.getAddress());
+        }
+        if (dto.getPhone() != null) {
+            user.setPhone(dto.getPhone());
+        }
         return user;
     }
 
