@@ -42,19 +42,23 @@ public class UserController {
         return userResponseDtoMapper.toDto(userService.add(user));
     }
 
+    @PostMapping("/{id}")
+    public UserResponseDto updateUser(@PathVariable Long id,
+                                      @RequestBody @Valid UserRequestDto requestDto) {
+        User user = userRequestDtoMapper.toModel(requestDto);
+        user.setId(userService.findById(id).getId());
+        return userResponseDtoMapper.toDto(userService.save(user));
+    }
+
     @PatchMapping("/{id}")
-    public String patchUser(@PathVariable Long id) {
+    public String changeUser(@PathVariable Long id) {
         return "Patch: Hello mate";
     }
 
-    @PostMapping("/{id}")
-    public String updateUser(@PathVariable Long id) {
-        return "Update: Hello mate";
-    }
-
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        return "Delete: Hello mate";
+    public void deleteUser(@PathVariable Long id) {
+        User user = userService.findById(id);
+        userService.delete(user);
     }
 
     @GetMapping("/by-birthday")

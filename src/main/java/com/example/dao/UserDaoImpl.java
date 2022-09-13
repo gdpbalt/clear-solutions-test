@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +49,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public Optional<User> findById(Long userId) {
+        return Optional.ofNullable(UserStorage.users.get(userId));
+    }
+
+    @Override
     public User add(User user) {
         Long nextId = UserStorage.users.values().stream()
                 .map(User::getId)
@@ -56,5 +62,16 @@ public class UserDaoImpl implements UserDao {
         user.setId(nextId);
         UserStorage.users.put(nextId, user);
         return user;
+    }
+
+    @Override
+    public User save(User user) {
+        UserStorage.users.replace(user.getId(), user);
+        return user;
+    }
+
+    @Override
+    public void delete(User user) {
+        UserStorage.users.remove(user.getId());
     }
 }

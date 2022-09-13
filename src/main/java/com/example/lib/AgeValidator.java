@@ -16,7 +16,7 @@ public class AgeValidator
         if (birthday == null) {
             return true;
         }
-        long age = ChronoUnit.YEARS.between(LocalDate.now(), birthday);
+        long age = ChronoUnit.YEARS.between(birthday, LocalDate.now());
         if (age < ageRestriction) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(
