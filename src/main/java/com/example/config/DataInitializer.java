@@ -20,12 +20,12 @@ public class DataInitializer {
                 "First name",
                 "Last name",
                 LocalDate.now().minusYears(10),
-                "Address",
-                "+380 (50) 422-50-26");
+                null,
+                null);
         userService.add(user);
 
         user = new User(2L,
-                "test@example.com",
+                "test@example.org",
                 "First name",
                 "Last name",
                 LocalDate.now().minusYears(20),
@@ -34,7 +34,7 @@ public class DataInitializer {
         userService.add(user);
 
         user = new User(3L,
-                "test@example.com",
+                "test@example.net",
                 "First name",
                 "Last name",
                 LocalDate.now().minusYears(30),
