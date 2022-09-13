@@ -27,6 +27,7 @@ If you not use any parameter that list will not be bounded by date.
 
 ### Features
 This project works with base of users, where users have such fields:
+- Id
 - Email (required)
 - First name (required)
 - Last name (required)
