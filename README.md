@@ -56,14 +56,18 @@ The application don't use any database so users are not saved between starts the
 - Lombok
 
 ### For launch project
-1. Computer must have working Maven and Java JDK. See versions above.
+1. Computer must have working Git, Maven and Java JDK. See versions above.
 
-2. Run next command in terminal from project directory:
+2. Clone this project to you computer
+   
+   > git clone git@github.com:gdpbalt/clear-solutions-test.git 
+
+3. Run next command in terminal from project directory:
 
    > mvn clean package
 
-3. Run next command in terminal from the project directory:
+4. Run next command in terminal from the project directory:
 
    > java -jar target/clear-solutions-test-0.0.1-SNAPSHOT.jar
 
-4. Open your browser on http://localhost:8080/users/by-birthday
+5. Open your browser on http://localhost:8080/users/by-birthday
