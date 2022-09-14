@@ -16,4 +16,14 @@ public class User {
     private LocalDate birthday;
     private String address;
     private String phone;
+
+    public User(String email, String firstName, String lastName, LocalDate birthday,
+                String address, String phone) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.address = address;
+        this.phone = phone;
+    }
 }

@@ -64,7 +64,7 @@ public class UserController {
     }
 
     @GetMapping("/by-birthday")
-    public List<UserResponseDto> findByBirthday(
+    public List<UserResponseDto> findUserByBirthday(
             @Valid UserControllerFindByBirthdayParameters parameters, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new RuntimeException("Error validating parameters");
