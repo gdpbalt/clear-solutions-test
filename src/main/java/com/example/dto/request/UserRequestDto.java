@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class UserRequestDto {
     @NotNull(message = "shouldn't be empty", groups = OnCreateOrFullUpdate.class)
     @Pattern(regexp = "^(.+)@(.+)$", message = "should be email address")
