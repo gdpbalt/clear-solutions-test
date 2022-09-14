@@ -56,7 +56,7 @@ The application don't use any database so users are not saved between starts the
 - Lombok
 
 ### For launch project
-1. Computer must have working Git, Maven and Java JDK. See versions above.
+1. Computer must have working programs: Git, Maven and Java JDK. See versions above.
 
 2. Clone this project to you computer
    
