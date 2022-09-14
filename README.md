@@ -44,6 +44,21 @@ You can via endpoints control users in database.
 After the application is started it already has three test users.
 The application don't use any database so users are not saved between starts the application.
 
+### Input data
+Application accept parameters in query string, url and request's body.
+Example of POST request for creating new user:
+
+   ```
+   {
+   "email": "test@example.org",
+   "firstName": "first name",
+   "lastName": "last name",
+   "birthday": "10.09.2000",
+   "address": "some address string",
+   "phone": "some phone number"
+   }
+   ```
+
 ### Project architecture
 1. Controllers - Presentation layer
 2. Services - Application layer
