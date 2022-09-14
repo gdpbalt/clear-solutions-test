@@ -45,7 +45,8 @@ After the application is started it already has three test users.
 The application don't use any database so users are not saved between starts the application.
 
 ### Input data
-Application accept parameters in query string, url and request's body.
+The application accept parameters in query string, url and request's body.
+
 Example of POST request for creating new user:
 
    ```
