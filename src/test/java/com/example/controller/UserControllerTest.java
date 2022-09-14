@@ -5,7 +5,6 @@ import static org.mockito.ArgumentMatchers.any;
 import com.example.dto.request.UserRequestDto;
 import com.example.model.User;
 import com.example.service.UserService;
-import com.example.util.DateTimePatternUtil;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.hamcrest.Matchers;
@@ -14,7 +13,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,8 +30,6 @@ class UserControllerTest {
     private final static String BASE_PATH = "/users";
     private final static int REQUEST_OK = HttpStatus.OK.value();
     private final static int REQUEST_BAD = HttpStatus.BAD_REQUEST.value();
-    private final static DateTimeFormatter FORMATTER =
-            DateTimeFormatter.ofPattern(DateTimePatternUtil.DATE_PATTERN);
     @Value("${local.variable.age.restriction:18}")
     private int ageRestriction;
 
@@ -63,8 +59,7 @@ class UserControllerTest {
                 .body("size()", Matchers.equalTo(2))
                 .body("[0].id", Matchers.equalTo(1))
                 .body("[0].email", Matchers.equalTo("test@example.org"))
-                .body("[0].birthday", Matchers.equalTo(
-                        FORMATTER.format(LocalDate.of(2000, 10, 1))));
+                .body("[0].birthday", Matchers.equalTo("01.10.2000"));
     }
 
     @Test
@@ -87,8 +82,7 @@ class UserControllerTest {
                 .body("size()", Matchers.equalTo(1))
                 .body("[0].id", Matchers.equalTo(1))
                 .body("[0].email", Matchers.equalTo("test@example.org"))
-                .body("[0].birthday", Matchers.equalTo(
-                        FORMATTER.format(LocalDate.of(2000, 10, 1))));
+                .body("[0].birthday", Matchers.equalTo("01.10.2000"));
     }
 
     @Test
