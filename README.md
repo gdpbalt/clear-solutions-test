@@ -44,6 +44,11 @@ You can via endpoints control users in database.
 After the application is started it already has three test users.
 The application don't use any database so users are not saved between starts the application.
 
+### Tests
+For control the application there are tests:
+- Integration test of the controller class.
+- Unit test of the dao level class.
+
 ### Input data
 The application accept parameters in query string, url and request's body.
 
